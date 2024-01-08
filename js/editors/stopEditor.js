@@ -8,6 +8,8 @@ class StopEditor {
 
         this.mouse = null;
         this.intent = null;
+
+        this.markings = world.markings;
     }
 
     enable() {
@@ -46,7 +48,7 @@ class StopEditor {
                 this.intent = new Stop(
                     proj.point,
                     seg.directionVector(),
-                    world.roadWidth,
+                    world.roadWidth / 2,
                     world.roadWidth / 2
                 );
             } else {
@@ -58,7 +60,12 @@ class StopEditor {
     }
 
     #handleMouseDown(evt) {
-
+        if (evt.button == 0) { //left click
+            if (this.intent) {
+                this.markings.push(this.intent);
+                this.intent = null;
+            }
+        }
     }
 
     display() {
