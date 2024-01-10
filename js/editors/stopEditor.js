@@ -66,6 +66,15 @@ class StopEditor {
                 this.intent = null;
             }
         }
+        if (evt.button == 2) { // right click
+            for (let i = 0; i < this.markings.length; i++) {
+                const poly = this.markings[i].poly;
+                if (poly.containsPoint(this.mouse)) {
+                    this.markings.splice(i, 1);
+                    return;
+                }
+            }
+        }
     }
 
     display() {
