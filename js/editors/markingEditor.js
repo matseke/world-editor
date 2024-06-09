@@ -46,7 +46,7 @@ class MarkingEditor {
         this.mouse = this.viewport.getMouse(evt, true);
         const seg = getNearestSegment(
             this.mouse, 
-            this.targetSegmants, 
+            this.targetSegments, 
             10 * this.viewport.zoom
         );
         if (seg) {
